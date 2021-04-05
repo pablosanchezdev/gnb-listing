@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  GNBListing
 //
-//  Created by Pablo Sanchez on 4/4/21.
+//  Created by Pablo Sanchez on 04/04/21.
 //
 
 import UIKit

@@ -62,5 +62,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>TransactionsBaseURL</key>
+	<string>https://quiet-stone-2094.herokuapp.com</string>
 </dict>
 </plist>
