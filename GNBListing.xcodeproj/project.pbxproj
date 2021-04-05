@@ -13,6 +13,10 @@
 		6E156A762619CA0B00BBE416 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E156A742619CA0B00BBE416 /* Main.storyboard */; };
 		6E156A782619CA0B00BBE416 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E156A772619CA0B00BBE416 /* Assets.xcassets */; };
 		6E156A7B2619CA0B00BBE416 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E156A792619CA0B00BBE416 /* LaunchScreen.storyboard */; };
+		6E156A92261AE78400BBE416 /* ConversionRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E156A91261AE78400BBE416 /* ConversionRate.swift */; };
+		6E156A96261AE88200BBE416 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E156A95261AE88200BBE416 /* Transaction.swift */; };
+		6E156A99261AE91200BBE416 /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E156A98261AE91200BBE416 /* TransactionsRepository.swift */; };
+		6E156A9D261AE9F700BBE416 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E156A9C261AE9F700BBE416 /* AppErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		6E156A772619CA0B00BBE416 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E156A7A2619CA0B00BBE416 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E156A7C2619CA0B00BBE416 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E156A91261AE78400BBE416 /* ConversionRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionRate.swift; sourceTree = "<group>"; };
+		6E156A95261AE88200BBE416 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		6E156A98261AE91200BBE416 /* TransactionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsRepository.swift; sourceTree = "<group>"; };
+		6E156A9C261AE9F700BBE416 /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,9 @@
 		6E156A852619CCDC00BBE416 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				6E156A90261AE73F00BBE416 /* Repositories */,
+				6E156A8F261AE73900BBE416 /* Models */,
+				6E156A8E261AE72F00BBE416 /* Errors */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -105,6 +116,31 @@
 				6E156A792619CA0B00BBE416 /* LaunchScreen.storyboard */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6E156A8E261AE72F00BBE416 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				6E156A9C261AE9F700BBE416 /* AppErrors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		6E156A8F261AE73900BBE416 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E156A91261AE78400BBE416 /* ConversionRate.swift */,
+				6E156A95261AE88200BBE416 /* Transaction.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6E156A90261AE73F00BBE416 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				6E156A98261AE91200BBE416 /* TransactionsRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +214,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E156A732619CA0B00BBE416 /* ViewController.swift in Sources */,
+				6E156A92261AE78400BBE416 /* ConversionRate.swift in Sources */,
 				6E156A6F2619CA0B00BBE416 /* AppDelegate.swift in Sources */,
 				6E156A712619CA0B00BBE416 /* SceneDelegate.swift in Sources */,
+				6E156A99261AE91200BBE416 /* TransactionsRepository.swift in Sources */,
+				6E156A9D261AE9F700BBE416 /* AppErrors.swift in Sources */,
+				6E156A96261AE88200BBE416 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GNBListing/Info.plist;
+				INFOPLIST_FILE = GNBListing/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -345,7 +385,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GNBListing/Info.plist;
+				INFOPLIST_FILE = GNBListing/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
