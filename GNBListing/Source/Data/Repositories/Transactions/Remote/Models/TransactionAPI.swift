@@ -9,6 +9,6 @@ import Foundation
 
 struct TransactionAPI: Decodable {
     let sku: String
-    let amount: Double
+    let amount: String
     let currency: String
 }

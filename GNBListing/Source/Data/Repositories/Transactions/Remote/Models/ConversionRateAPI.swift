@@ -10,5 +10,5 @@ import Foundation
 struct ConversionRateAPI: Decodable {
     let from: String
     let to: String
-    let rate: Double
+    let rate: String
 }

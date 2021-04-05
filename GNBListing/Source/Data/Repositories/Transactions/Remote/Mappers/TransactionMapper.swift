@@ -10,13 +10,13 @@ import Foundation
 // MARK: - TransactionAPI mapper
 extension TransactionAPI {
     func toTransaction() -> Transaction {
-        return Transaction(id: sku, amount: amount, currency: currency)
+        return Transaction(sku: sku, amount: Double(amount)!, currency: currency)
     }
 }
 
 // MARK: - ConversionRateAPI mapper
 extension ConversionRateAPI {
     func toConversionRate() -> ConversionRate {
-        return ConversionRate(from: from, to: to, rate: rate)
+        return ConversionRate(from: from, to: to, rate: Double(rate)!)
     }
 }

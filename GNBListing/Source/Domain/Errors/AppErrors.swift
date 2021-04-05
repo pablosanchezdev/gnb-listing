@@ -7,8 +7,12 @@
 
 import Foundation
 
-enum AppError: Error {
-    case apiRequest
-    case invalidJSON
-    case decodingJSON
+enum AppError: String, Error {
+    case apiRequest = "API request failed"
+    case invalidJSON = "Invalid json received"
+    case decodingJSON = "Error while decoding json"
+    
+    var description: String {
+        return self.rawValue
+    }
 }

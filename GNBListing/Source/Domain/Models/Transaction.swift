@@ -8,7 +8,7 @@
 import Foundation
 
 struct Transaction {
-    let id: String
+    let sku: String
     let amount: Double
     let currency: String
 }
