@@ -14,7 +14,6 @@ protocol ProductDetailPresenterDelegate: class {
     func setupView()
     func setTotal(_ total: String)
     func render(transactions: [Transaction])
-    func showError(message: String)
 }
 
 class ProductDetailPresenter: BasePresenter {
@@ -68,7 +67,7 @@ private extension ProductDetailPresenter {
             case .success(let conversionRates):
                 completionSuccess(conversionRates)
             case .failure(let error):
-                self?.view?.showError(message: error.description)
+                self?.coordinator.showError(message: error.description)
             }
         }
     }

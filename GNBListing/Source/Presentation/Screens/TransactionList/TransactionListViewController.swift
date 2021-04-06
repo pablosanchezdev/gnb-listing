@@ -46,11 +46,6 @@ extension TransactionListViewController: TransactionListPresenterDelegate {
         self.transactions = transactions
         tableView.reloadData()
     }
-    
-    func showError(message: String) {
-        let alert = UIAlertController.commonAcceptAlert(withTitle: "Error", message: message)
-        present(alert, animated: true, completion: nil)
-    }
 }
 
 // MARK: - UITableViewDataSource methods

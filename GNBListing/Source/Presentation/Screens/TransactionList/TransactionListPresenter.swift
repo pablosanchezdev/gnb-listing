@@ -10,7 +10,6 @@ import Foundation
 protocol TransactionListPresenterDelegate: class {
     func setupView()
     func render(transactions: [Transaction])
-    func showError(message: String)
 }
 
 class TransactionListPresenter: BasePresenter {
@@ -52,7 +51,7 @@ private extension TransactionListPresenter {
                 self?.view?.render(transactions: transactionss)
                 self?.storage.setTransactions(transactionss)
             case .failure(let error):
-                self?.view?.showError(message: error.description)
+                self?.coordinator.showError(message: error.description)
             }
         }
     }

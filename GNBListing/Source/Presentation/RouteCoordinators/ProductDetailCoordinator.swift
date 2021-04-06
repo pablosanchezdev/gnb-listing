@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProductDetailCoordinatorProtocol: Coordinable {
-    
+    func showError(message: String)
 }
 
 class ProductDetailCoordinator: ProductDetailCoordinatorProtocol {
@@ -18,11 +18,12 @@ class ProductDetailCoordinator: ProductDetailCoordinatorProtocol {
         return productDetailViewController
     }
     
-    init() {
-        
-    }
-    
     func start() {
         productDetailViewController = assembly.productDetailViewController()
+    }
+    
+    func showError(message: String) {
+        let alert = UIAlertController.commonAcceptAlert(withTitle: "Error", message: message)
+        productDetailViewController.present(alert, animated: true, completion: nil)
     }
 }
