@@ -30,6 +30,9 @@
 		6E8D2967261B2310006CFD9B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D2966261B2310006CFD9B /* ReusableView.swift */; };
 		6E8D2970261B2AE8006CFD9B /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D296E261B2AE8006CFD9B /* ProductDetailViewController.swift */; };
 		6E8D2971261B2AE8006CFD9B /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8D296F261B2AE8006CFD9B /* ProductDetailViewController.xib */; };
+		6E8D2974261B2E4D006CFD9B /* ProductDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D2973261B2E4D006CFD9B /* ProductDetailPresenter.swift */; };
+		6E8D2979261C3BA0006CFD9B /* TransactionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D2978261C3BA0006CFD9B /* TransactionStorage.swift */; };
+		6E8D297D261C64D0006CFD9B /* UIAlertController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D297C261C64D0006CFD9B /* UIAlertController+Alerts.swift */; };
 		6E970CA3261B143100B0890F /* TransactionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E970CA1261B143100B0890F /* TransactionListViewController.swift */; };
 		6E970CA4261B143100B0890F /* TransactionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E970CA2261B143100B0890F /* TransactionListViewController.xib */; };
 		6E970CA7261B155800B0890F /* TransactionListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E970CA6261B155800B0890F /* TransactionListPresenter.swift */; };
@@ -65,6 +68,9 @@
 		6E8D2966261B2310006CFD9B /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		6E8D296E261B2AE8006CFD9B /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		6E8D296F261B2AE8006CFD9B /* ProductDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
+		6E8D2973261B2E4D006CFD9B /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
+		6E8D2978261C3BA0006CFD9B /* TransactionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStorage.swift; sourceTree = "<group>"; };
+		6E8D297C261C64D0006CFD9B /* UIAlertController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Alerts.swift"; sourceTree = "<group>"; };
 		6E970CA1261B143100B0890F /* TransactionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewController.swift; sourceTree = "<group>"; };
 		6E970CA2261B143100B0890F /* TransactionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListViewController.xib; sourceTree = "<group>"; };
 		6E970CA6261B155800B0890F /* TransactionListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListPresenter.swift; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 		6E156A8F261AE73900BBE416 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6E8D2978261C3BA0006CFD9B /* TransactionStorage.swift */,
 				6E156A91261AE78400BBE416 /* ConversionRate.swift */,
 				6E156A95261AE88200BBE416 /* Transaction.swift */,
 			);
@@ -318,6 +325,7 @@
 			children = (
 				6E8D296E261B2AE8006CFD9B /* ProductDetailViewController.swift */,
 				6E8D296F261B2AE8006CFD9B /* ProductDetailViewController.xib */,
+				6E8D2973261B2E4D006CFD9B /* ProductDetailPresenter.swift */,
 			);
 			path = ProductDetail;
 			sourceTree = "<group>";
@@ -339,6 +347,7 @@
 			children = (
 				6E970CAA261B16A900B0890F /* BasePresenter.swift */,
 				6E8D2966261B2310006CFD9B /* ReusableView.swift */,
+				6E8D297C261C64D0006CFD9B /* UIAlertController+Alerts.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -468,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E8D2974261B2E4D006CFD9B /* ProductDetailPresenter.swift in Sources */,
 				6E156A92261AE78400BBE416 /* ConversionRate.swift in Sources */,
 				6E970CA3261B143100B0890F /* TransactionListViewController.swift in Sources */,
 				6E156AD2261AFCB500BBE416 /* ConversionRateAPI.swift in Sources */,
@@ -476,6 +486,7 @@
 				6E8D2970261B2AE8006CFD9B /* ProductDetailViewController.swift in Sources */,
 				6E156ABB261AF22B00BBE416 /* AlamofireAPIClient.swift in Sources */,
 				6E156ACC261AF9F700BBE416 /* Constants.swift in Sources */,
+				6E8D297D261C64D0006CFD9B /* UIAlertController+Alerts.swift in Sources */,
 				6E156ADD261B000300BBE416 /* TransactionMapper.swift in Sources */,
 				6E156AAF261AF11C00BBE416 /* Endpoint.swift in Sources */,
 				6E8D2967261B2310006CFD9B /* ReusableView.swift in Sources */,
@@ -489,6 +500,7 @@
 				6E156AC1261AF82700BBE416 /* TransactionEndpoints.swift in Sources */,
 				6E156AA5261AEEFF00BBE416 /* Decoder.swift in Sources */,
 				6E156A96261AE88200BBE416 /* Transaction.swift in Sources */,
+				6E8D2979261C3BA0006CFD9B /* TransactionStorage.swift in Sources */,
 				6E970CB0261B17D700B0890F /* TransactionCell.swift in Sources */,
 				6E156AC7261AF9AF00BBE416 /* String+Plist.swift in Sources */,
 				6E970CAB261B16A900B0890F /* BasePresenter.swift in Sources */,

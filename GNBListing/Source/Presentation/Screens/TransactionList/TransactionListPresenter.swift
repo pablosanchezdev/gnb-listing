@@ -16,10 +16,12 @@ protocol TransactionListPresenterDelegate: class {
 class TransactionListPresenter: BasePresenter {
     weak var view: TransactionListPresenterDelegate?
     
-    let repository: TransactionRepository
+    private let repository: TransactionRepository
+    private let storage: TransactionStorage
     
-    init(repository: TransactionRepository) {
+    init(repository: TransactionRepository, storage: TransactionStorage) {
         self.repository = repository
+        self.storage = storage
     }
     
     override func prepareView(for state: ViewState) {
@@ -33,7 +35,7 @@ class TransactionListPresenter: BasePresenter {
         }
     }
     
-    func didSelect(transaction: Transaction) {
+    func didSelectTransaction(atIndex index: Int) {
         
     }
 }
@@ -44,7 +46,9 @@ private extension TransactionListPresenter {
         repository.getTransactions { [weak self] result in
             switch result {
             case .success(let transactions):
-                self?.view?.render(transactions: transactions)
+                let transactionss = [Transaction(sku: "1", amount: 10, currency: "EUR"), Transaction(sku: "2", amount: 10, currency: "USD"), Transaction(sku: "1", amount: 5, currency: "USD"), Transaction(sku: "1", amount: 1, currency: "AUD")]
+                self?.view?.render(transactions: transactionss)
+                self?.storage.setTransactions(transactionss)
             case .failure(let error):
                 self?.view?.showError(message: error.description)
             }

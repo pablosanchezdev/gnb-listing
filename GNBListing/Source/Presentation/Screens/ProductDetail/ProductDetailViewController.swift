@@ -1,20 +1,21 @@
 //
-//  TransactionListViewController.swift
+//  ProductDetailViewController.swift
 //  GNBListing
 //
-//  Created by Pablo Sanchez on 5/4/21.
+//  Created by Pablo Sanchez on 05/04/21.
 //
 
 import UIKit
 
-class TransactionListViewController: UIViewController {
+class ProductDetailViewController: UIViewController {
+    @IBOutlet private weak var totalLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     
-    private let presenter: TransactionListPresenter
+    private let presenter: ProductDetailPresenter
     
     private var transactions: [Transaction] = []
     
-    init(presenter: TransactionListPresenter) {
+    init(presenter: ProductDetailPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         self.presenter.view = self
@@ -37,10 +38,14 @@ class TransactionListViewController: UIViewController {
     }
 }
 
-// MARK: - TransactionListPresenterDelegate methods
-extension TransactionListViewController: TransactionListPresenterDelegate {
+// MARK: - ProductDetailPresenterDelegate methods
+extension ProductDetailViewController: ProductDetailPresenterDelegate {
     func setupView() {
         setupTableView()
+    }
+    
+    func setTotal(_ total: String) {
+        totalLabel.text = total
     }
     
     func render(transactions: [Transaction]) {
@@ -55,7 +60,7 @@ extension TransactionListViewController: TransactionListPresenterDelegate {
 }
 
 // MARK: - UITableViewDataSource methods
-extension TransactionListViewController: UITableViewDataSource {
+extension ProductDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return transactions.count
     }
@@ -70,24 +75,14 @@ extension TransactionListViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate methods
-extension TransactionListViewController: UITableViewDelegate {
+extension ProductDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TransactionCell.height()
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelectTransaction(atIndex: indexPath.row)
-        let apiClient = AlamofireAPIClient()
-        let decoder = JsonDecoder()
-        let repository = RemoteTransactionRepository(apiClient: apiClient, decoder: decoder)
-        let presenter = ProductDetailPresenter(index: indexPath.row, storage: TransactionStorage.shared, repository: repository)
-        let viewController = ProductDetailViewController(presenter: presenter)
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
 // MARK: - Private methods
-private extension TransactionListViewController {
+private extension ProductDetailViewController {
     func setupTableView() {
         tableView.registerReusableCell(withType: TransactionCell.self)
         tableView.dataSource = self
