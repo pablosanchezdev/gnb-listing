@@ -12,3 +12,6 @@ struct ConversionRate {
     let to: String
     let rate: Double
 }
+
+// MARK: - Equatable
+extension ConversionRate: Equatable { }

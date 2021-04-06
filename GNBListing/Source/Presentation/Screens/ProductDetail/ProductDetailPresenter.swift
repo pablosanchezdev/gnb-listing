@@ -84,33 +84,36 @@ private extension ProductDetailPresenter {
             if transaction.currency == kEUR {
                 return accum + transaction.amount
             } else {
-                return accum + convertAmount(fromTransaction: transaction, toEurosWithConversionRates: rates)
+                return accum + convertRate(from: transaction.currency, to: kEUR, withRates: rates) * transaction.amount
             }
         }
         
         return totalEuros
     }
     
-    func convertAmount(fromTransaction transaction: Transaction, toEurosWithConversionRates rates: [ConversionRate]) -> Double {
-        let currency = transaction.currency
-        // Get currency conversion rates
-        let currencyConversionRates = rates.filter { $0.from == currency }
-        // Check if direct conversion to EUR exists
-        let directConversion = currencyConversionRates.first { $0.to == kEUR }
+    func convertRate(from originCurrency: String, to targetCurrency: String, withRates rates: [ConversionRate], accumRate: Double = 1) -> Double {
+        // Check if direct conversion exists
+        let directConversion = rates.first { $0.from == originCurrency && $0.to == targetCurrency }
         if let directConversion = directConversion {
-            return directConversion.rate * transaction.amount
-        } else { // Direct conversion to EUR is not available
-            for rate in currencyConversionRates {
-                let originRate = rate.rate
-                let targetCurrency = rate.to
-                let targetConversion = rates.first { $0.from == targetCurrency && $0.to == kEUR }
-                if let targetConversion = targetConversion {
-                    return targetConversion.rate * originRate * transaction.amount
-                }
-            }
-            
-            // No possible conversion
+            // Stop recursion
+            return directConversion.rate
+        }
+        // No direct conversion available
+        // Get conversion rates with origin currency
+        let originCurrencyRates = rates.filter { $0.from == originCurrency }
+        if originCurrencyRates.isEmpty {
             return 0.0
         }
+        for rate in originCurrencyRates {
+            let rateTargetCurrency = rate.to
+            var newRates = rates
+            if let rateIndex = rates.firstIndex(of: rate) {
+                newRates.remove(at: rateIndex)
+            }
+            
+            return accumRate * convertRate(from: rateTargetCurrency, to: targetCurrency, withRates: newRates, accumRate: rate.rate)
+        }
+        
+        return 0.0
     }
 }

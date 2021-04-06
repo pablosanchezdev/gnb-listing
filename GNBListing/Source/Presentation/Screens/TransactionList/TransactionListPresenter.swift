@@ -47,9 +47,8 @@ private extension TransactionListPresenter {
         repository.getTransactions { [weak self] result in
             switch result {
             case .success(let transactions):
-                let transactionss = [Transaction(sku: "1", amount: 10, currency: "EUR"), Transaction(sku: "2", amount: 10, currency: "USD"), Transaction(sku: "1", amount: 5, currency: "USD"), Transaction(sku: "1", amount: 1, currency: "AUD")]
-                self?.view?.render(transactions: transactionss)
-                self?.storage.setTransactions(transactionss)
+                self?.view?.render(transactions: transactions)
+                self?.storage.setTransactions(transactions)
             case .failure(let error):
                 self?.coordinator.showError(message: error.description)
             }
