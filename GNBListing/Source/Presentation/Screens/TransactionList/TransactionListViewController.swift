@@ -17,7 +17,6 @@ class TransactionListViewController: UIViewController {
     init(presenter: TransactionListPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        self.presenter.view = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -77,12 +76,6 @@ extension TransactionListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectTransaction(atIndex: indexPath.row)
-        let apiClient = AlamofireAPIClient()
-        let decoder = JsonDecoder()
-        let repository = RemoteTransactionRepository(apiClient: apiClient, decoder: decoder)
-        let presenter = ProductDetailPresenter(index: indexPath.row, storage: TransactionStorage.shared, repository: repository)
-        let viewController = ProductDetailViewController(presenter: presenter)
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

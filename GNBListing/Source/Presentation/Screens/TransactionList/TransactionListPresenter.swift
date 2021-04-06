@@ -16,10 +16,12 @@ protocol TransactionListPresenterDelegate: class {
 class TransactionListPresenter: BasePresenter {
     weak var view: TransactionListPresenterDelegate?
     
+    private let coordinator: TransactionListCoordinatorProtocol
     private let repository: TransactionRepository
     private let storage: TransactionStorage
     
-    init(repository: TransactionRepository, storage: TransactionStorage) {
+    init(coordinator: TransactionListCoordinatorProtocol, repository: TransactionRepository, storage: TransactionStorage) {
+        self.coordinator = coordinator
         self.repository = repository
         self.storage = storage
     }
@@ -36,7 +38,7 @@ class TransactionListPresenter: BasePresenter {
     }
     
     func didSelectTransaction(atIndex index: Int) {
-        
+        coordinator.didSelectTransaction(atIndex: index)
     }
 }
 

@@ -33,6 +33,11 @@
 		6E8D2974261B2E4D006CFD9B /* ProductDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D2973261B2E4D006CFD9B /* ProductDetailPresenter.swift */; };
 		6E8D2979261C3BA0006CFD9B /* TransactionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D2978261C3BA0006CFD9B /* TransactionStorage.swift */; };
 		6E8D297D261C64D0006CFD9B /* UIAlertController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D297C261C64D0006CFD9B /* UIAlertController+Alerts.swift */; };
+		6E8D2981261C65CF006CFD9B /* Coordinable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D2980261C65CF006CFD9B /* Coordinable.swift */; };
+		6E8D2984261C660E006CFD9B /* TransactionListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D2983261C660E006CFD9B /* TransactionListCoordinator.swift */; };
+		6E8D298C261C677A006CFD9B /* SwinjectAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D298B261C677A006CFD9B /* SwinjectAssembly.swift */; };
+		6E8D298F261C67AE006CFD9B /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D298E261C67AE006CFD9B /* Assembly.swift */; };
+		6E8D2992261C6C6E006CFD9B /* ProductDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D2991261C6C6E006CFD9B /* ProductDetailCoordinator.swift */; };
 		6E970CA3261B143100B0890F /* TransactionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E970CA1261B143100B0890F /* TransactionListViewController.swift */; };
 		6E970CA4261B143100B0890F /* TransactionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E970CA2261B143100B0890F /* TransactionListViewController.xib */; };
 		6E970CA7261B155800B0890F /* TransactionListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E970CA6261B155800B0890F /* TransactionListPresenter.swift */; };
@@ -71,6 +76,11 @@
 		6E8D2973261B2E4D006CFD9B /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
 		6E8D2978261C3BA0006CFD9B /* TransactionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStorage.swift; sourceTree = "<group>"; };
 		6E8D297C261C64D0006CFD9B /* UIAlertController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Alerts.swift"; sourceTree = "<group>"; };
+		6E8D2980261C65CF006CFD9B /* Coordinable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinable.swift; sourceTree = "<group>"; };
+		6E8D2983261C660E006CFD9B /* TransactionListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListCoordinator.swift; sourceTree = "<group>"; };
+		6E8D298B261C677A006CFD9B /* SwinjectAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwinjectAssembly.swift; sourceTree = "<group>"; };
+		6E8D298E261C67AE006CFD9B /* Assembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		6E8D2991261C6C6E006CFD9B /* ProductDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailCoordinator.swift; sourceTree = "<group>"; };
 		6E970CA1261B143100B0890F /* TransactionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewController.swift; sourceTree = "<group>"; };
 		6E970CA2261B143100B0890F /* TransactionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListViewController.xib; sourceTree = "<group>"; };
 		6E970CA6261B155800B0890F /* TransactionListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListPresenter.swift; sourceTree = "<group>"; };
@@ -174,6 +184,8 @@
 			children = (
 				6E156A6E2619CA0B00BBE416 /* AppDelegate.swift */,
 				6E156A702619CA0B00BBE416 /* SceneDelegate.swift */,
+				6E8D2986261C6725006CFD9B /* DI */,
+				6E8D297F261C65BA006CFD9B /* RouteCoordinators */,
 				6E156ADF261B019300BBE416 /* Launch */,
 				6E156AE1261B022600BBE416 /* Screens */,
 			);
@@ -342,6 +354,25 @@
 			path = TransactionList;
 			sourceTree = "<group>";
 		};
+		6E8D297F261C65BA006CFD9B /* RouteCoordinators */ = {
+			isa = PBXGroup;
+			children = (
+				6E8D2980261C65CF006CFD9B /* Coordinable.swift */,
+				6E8D2983261C660E006CFD9B /* TransactionListCoordinator.swift */,
+				6E8D2991261C6C6E006CFD9B /* ProductDetailCoordinator.swift */,
+			);
+			path = RouteCoordinators;
+			sourceTree = "<group>";
+		};
+		6E8D2986261C6725006CFD9B /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				6E8D298E261C67AE006CFD9B /* Assembly.swift */,
+				6E8D298B261C677A006CFD9B /* SwinjectAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		6E970CA9261B16A000B0890F /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,11 +521,15 @@
 				6E156ADD261B000300BBE416 /* TransactionMapper.swift in Sources */,
 				6E156AAF261AF11C00BBE416 /* Endpoint.swift in Sources */,
 				6E8D2967261B2310006CFD9B /* ReusableView.swift in Sources */,
+				6E8D2984261C660E006CFD9B /* TransactionListCoordinator.swift in Sources */,
 				6E156AB3261AF15B00BBE416 /* APIClient.swift in Sources */,
 				6E156A712619CA0B00BBE416 /* SceneDelegate.swift in Sources */,
 				6E156AD9261AFD7F00BBE416 /* RemoteTransactionRepository.swift in Sources */,
+				6E8D2992261C6C6E006CFD9B /* ProductDetailCoordinator.swift in Sources */,
 				6E156AD6261AFD1B00BBE416 /* TransactionAPI.swift in Sources */,
 				6E156A99261AE91200BBE416 /* TransactionRepository.swift in Sources */,
+				6E8D2981261C65CF006CFD9B /* Coordinable.swift in Sources */,
+				6E8D298C261C677A006CFD9B /* SwinjectAssembly.swift in Sources */,
 				6E156A9D261AE9F700BBE416 /* AppErrors.swift in Sources */,
 				6E970CA7261B155800B0890F /* TransactionListPresenter.swift in Sources */,
 				6E156AC1261AF82700BBE416 /* TransactionEndpoints.swift in Sources */,
@@ -502,6 +537,7 @@
 				6E156A96261AE88200BBE416 /* Transaction.swift in Sources */,
 				6E8D2979261C3BA0006CFD9B /* TransactionStorage.swift in Sources */,
 				6E970CB0261B17D700B0890F /* TransactionCell.swift in Sources */,
+				6E8D298F261C67AE006CFD9B /* Assembly.swift in Sources */,
 				6E156AC7261AF9AF00BBE416 /* String+Plist.swift in Sources */,
 				6E970CAB261B16A900B0890F /* BasePresenter.swift in Sources */,
 			);

@@ -22,11 +22,16 @@ class ProductDetailPresenter: BasePresenter {
     
     private let index: Int
     private let transactions: [Transaction]
+    private let coordinator: ProductDetailCoordinatorProtocol
     private let repository: TransactionRepository
     
-    init(index: Int, storage: TransactionStorage, repository: TransactionRepository) {
+    init(index: Int,
+         storage: TransactionStorage,
+         coordinator: ProductDetailCoordinatorProtocol,
+         repository: TransactionRepository) {
         self.index = index
         self.transactions = storage.transactions
+        self.coordinator = coordinator
         self.repository = repository
     }
     

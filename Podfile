@@ -6,5 +6,6 @@ target 'GNBListing' do
   use_frameworks!
 
   # Pods for GNBListing
+  pod 'Swinject'
   pod 'Alamofire'
 end

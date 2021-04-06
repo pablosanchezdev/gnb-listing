@@ -18,11 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        let apiClient = AlamofireAPIClient()
-        let decoder = JsonDecoder()
-        let repository = RemoteTransactionRepository(apiClient: apiClient, decoder: decoder)
-        let presenter = TransactionListPresenter(repository: repository, storage: TransactionStorage.shared)
-        window?.rootViewController = UINavigationController(rootViewController: TransactionListViewController(presenter: presenter))
+        window?.rootViewController = assembly.transactionListCoordinator().rootViewController
         window?.makeKeyAndVisible()
     }
     

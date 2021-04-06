@@ -10,9 +10,7 @@ import Foundation
 class TransactionStorage {
     private(set) var transactions: [Transaction]
     
-    static let shared = TransactionStorage()
-    
-    private init() {
+    init() {
         self.transactions = []
     }
     

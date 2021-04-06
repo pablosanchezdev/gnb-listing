@@ -18,7 +18,6 @@ class ProductDetailViewController: UIViewController {
     init(presenter: ProductDetailPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        self.presenter.view = self
     }
     
     required init?(coder aDecoder: NSCoder) {
