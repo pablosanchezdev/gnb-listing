@@ -8,7 +8,7 @@
 import Foundation
 
 private let kEUR = "EUR"
-private let kTotalEurFormat = "El total en euros son %.2f"
+private let kTotalEurFormat = "El total en euros son %@"
 
 protocol ProductDetailPresenterDelegate: class {
     func setupView()
@@ -56,7 +56,7 @@ private extension ProductDetailPresenter {
             self?.view?.render(transactions: productTransactions)
             let totalEuros = strongSelf.totalEuros(forTransactions: productTransactions,
                                                    withConversionRates: conversionRates)
-            let totalEurosFormatted = String.init(format: kTotalEurFormat, totalEuros)
+            let totalEurosFormatted = String(format: kTotalEurFormat, totalEuros.formatted(asCurrency: "EUR")!)
             self?.view?.setTotal(totalEurosFormatted)
         }
     }
@@ -79,12 +79,12 @@ private extension ProductDetailPresenter {
         return filteredTransactions
     }
     
-    func totalEuros(forTransactions transactions: [Transaction], withConversionRates rates: [ConversionRate]) -> Double {
-        let totalEuros = transactions.reduce(0.0) { (accum, transaction) -> Double in
+    func totalEuros(forTransactions transactions: [Transaction], withConversionRates rates: [ConversionRate]) -> Decimal {
+        let totalEuros = transactions.reduce(Decimal(0.0)) { (accum, transaction) -> Decimal in
             if transaction.currency == kEUR {
                 return accum + transaction.amount
             } else {
-                return accum + convertRate(from: transaction.currency, to: kEUR, withRates: rates) * transaction.amount
+                return accum + Decimal(convertRate(from: transaction.currency, to: kEUR, withRates: rates)) * transaction.amount
             }
         }
         

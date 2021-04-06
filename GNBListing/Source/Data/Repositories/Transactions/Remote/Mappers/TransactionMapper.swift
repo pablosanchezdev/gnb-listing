@@ -10,7 +10,11 @@ import Foundation
 // MARK: - TransactionAPI mapper
 extension TransactionAPI {
     func toTransaction() -> Transaction {
-        return Transaction(sku: sku, amount: Double(amount)!, currency: currency)
+        if let amount = Decimal(string: amount) {
+            return Transaction(sku: sku, amount: amount, currency: currency)
+        } else {
+            return Transaction(sku: sku, amount: Decimal(0), currency: currency)
+        }
     }
 }
 
